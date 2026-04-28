@@ -16,7 +16,25 @@ const Order = () => {
     const orderproduct = (e) =>{
         e.preventDefault();
 
+        const username = e.target.username.value;
+        console.log(username);
+
         console.log(id);
+
+        const data={
+            username,
+            id,
+        }
+
+        fetch("http://localhost:8000/orderedproduct",{
+            method:"POST",
+            headers:{
+                'Content-Type': 'application/json',
+            },
+              body: JSON.stringify(data),
+        })
+
+    e.target.reset();
 
     }
 
@@ -44,7 +62,7 @@ const Order = () => {
                                 <div className='flex flex-col'>
 
                                      <label className='text-center mb-2'>Username</label>
-                                <input type='text' className='bg-amber-300 rounded-2xl pl-4'/>
+                                <input name='username' type='text' className='bg-amber-300 rounded-2xl pl-4'/>
 
                                 </div>
 
