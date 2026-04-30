@@ -37,6 +37,14 @@ const Order = () => {
               body: JSON.stringify(data),
         })
 
+          fetch("http://localhost:8000/singleproductsinfo",{
+            method:"POST",
+            headers:{
+                'Content-Type': 'application/json',
+            },
+              body: JSON.stringify(data),
+        })
+
         fetch("http://localhost:8000/username",{
             method:"POST",
             headers:{
